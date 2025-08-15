@@ -6,7 +6,9 @@ export default function HomeScreen() {
   return (
     <View>
       <FlatList
+        keyExtractor={(post) => post.id}
         data={posts}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => <PostListItem post={item} />}
       />
     </View>
