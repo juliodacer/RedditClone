@@ -20,12 +20,10 @@ export default function CreateScreen() {
   const [bodyText, setBodyText] = useState<string>("");
   const [group, setGroup] = useAtom(selectedGroupAtom);
 
-  console.log({ group });
-
   const goBack = () => {
     setTitle("");
     setBodyText("");
-    setGroup(null);
+    setGroup(null); 
     router.back();
   };
 
