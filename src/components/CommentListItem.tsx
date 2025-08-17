@@ -1,3 +1,4 @@
+import { useState, memo } from "react";
 import {
   View,
   Text,
@@ -9,7 +10,6 @@ import {
 import { Entypo, Octicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { formatDistanceToNowStrict } from "date-fns";
 import { Comment } from "../types";
-import { useState } from "react";
 
 type CommentListItemProps = {
   comment: Comment;
@@ -136,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CommentListItem;
+export default memo(CommentListItem);

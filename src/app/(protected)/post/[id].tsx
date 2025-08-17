@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import {
   FlatList,
   Pressable,
@@ -28,9 +28,9 @@ export default function DetailedPost() {
     (comment) => comment.post_id === "post-1"
   );
 
-  const handleReplyButtonPressed = (commentId: string) => {
-    inputRef.current?.focus()
-  };
+  const handleReplyButtonPressed = useCallback((commentId: string) => {
+    inputRef.current?.focus();
+  }, [])
 
   if (!detailedPost) {
     return <Text>Post Not Found</Text>;
