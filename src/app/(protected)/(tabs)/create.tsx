@@ -5,13 +5,12 @@ import {
   StyleSheet,
   TextInput,
   KeyboardAvoidingView,
-  Platform,
   ScrollView,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function CreateScreen() {
   const [title, setTitle] = useState<string>("");
@@ -41,10 +40,12 @@ export default function CreateScreen() {
           style={{ paddingVertical: 10 }}
         >
           {/* COMUNITY SELECTOR */}
-          <View style={styles.communityContainer}>
-            <Text style={styles.rStyles}>r/</Text>
-            <Text style={{ fontWeight: "600" }}>Select a community</Text>
-          </View>
+          <Link href={"groupSelector"} asChild>
+            <Pressable style={styles.communityContainer}>
+              <Text style={styles.rStyles}>r/</Text>
+              <Text style={{ fontWeight: "600" }}>Select a community</Text>
+            </Pressable>
+          </Link>
 
           {/* INPUTS */}
           <TextInput
