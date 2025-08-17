@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FlatList,
   Image,
@@ -10,15 +11,23 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState } from "react";
+import { useSetAtom } from "jotai";
+import { selectedGroupAtom } from "../../atom";
 import groups from "../../../assets/data/groups.json";
+import { Group } from "../../types";
 
 export default function GroupSelector() {
   const [searchValue, setSearchValue] = useState<string>("");
+  const setGroup = useSetAtom(selectedGroupAtom);
 
   const filteredGroups = groups.filter((group) =>
     group.name.toLowerCase().includes(searchValue.toLowerCase())
   );
+
+  const onGroupSelected = (group: Group) => {
+    setGroup(group);
+    router.back();
+  };
 
   return (
     <SafeAreaView style={{ marginHorizontal: 10, flex: 1 }}>
@@ -87,6 +96,7 @@ export default function GroupSelector() {
                 gap: 5,
                 marginBottom: 20,
               }}
+              onPress={() => onGroupSelected(item)}
             >
               <Image
                 source={{ uri: item.image }}
