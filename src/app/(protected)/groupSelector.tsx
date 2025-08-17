@@ -20,8 +20,6 @@ export default function GroupSelector() {
     group.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
-  console.log({ filteredGroups });
-
   return (
     <SafeAreaView style={{ marginHorizontal: 10, flex: 1 }}>
       <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>

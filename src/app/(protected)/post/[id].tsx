@@ -6,7 +6,6 @@ import PostListItem from "../../../components/PostListItem";
 export default function DetailedPost() {
   const { id } = useLocalSearchParams();
   const detailedPost = posts.find((post) => post.id === id);
-  console.log({ detailedPost: JSON.stringify(detailedPost, null, 2) });
 
   if (!detailedPost) {
     return <Text>Post Not Found</Text>;

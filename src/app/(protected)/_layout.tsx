@@ -6,8 +6,6 @@ import { View } from "react-native";
 export default function AppLayout() {
   const { isSignedIn } = useAuth();
 
-  console.log({ isSignedIn });
-
   if (!isSignedIn) {
     return <Redirect href={"/signIn"} />;
   }
