@@ -1,13 +1,20 @@
-export type Post = {
-  id: string;
-  title: string;
-  created_at: string;
-  upvotes: number;
-  nr_of_comments: number;
-  image: string | null;
-  description: string | null;
-  group: Group;
-  user: User;
+import { Tables } from "./types/database.types";
+// export type Post = {
+//   id: string;
+//   title: string;
+//   created_at: string;
+//   upvotes: number;
+//   nr_of_comments: number;
+//   image: string | null;
+//   description: string | null;
+//   group: Group;
+//   user: User;
+// };
+
+
+export type Post = Tables<"posts"> & {
+  user: Tables<"users">;
+  group: Tables<"groups">;
 };
 
 export type Comment = {

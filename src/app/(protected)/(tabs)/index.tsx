@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../../lib/supabase";
 import { Post } from "../../../types";
 
-// type Post = Tables<"posts"> & {
-//   user:
-// }
-
 export default function HomeScreen() {
   const [posts, setPosts] = useState<Post[]>([]);
 
